@@ -2,8 +2,14 @@
 
 This project is a full-stack **heart disease prediction system** that combines machine learning experiments with an interactive web dashboard.  
 
-I applied **11 different machine learning algorithms**, both **with and without Genetic Algorithm (GA) for feature selection**, to analyze and identify the best-performing model. Among all experiments, the **Random Forest model achieved the highest accuracy** and has been deployed for real-time predictions.
+I explored **11 different machine learning algorithms**, including both **classical machine learning (ML)** and **deep learning (DL) models**, to identify the most accurate model for predicting heart disease. Each algorithm was tested **with and without Genetic Algorithm (GA) feature selection**, across multiple train-test splits (70:30, 75:25, 80:20) and using **k-fold cross-validation** to ensure reliable evaluation.  
 
+Among all models, the **Random Forest model consistently achieved the highest accuracy** and was selected for deployment. Interestingly, **Decision Tree and LightGBM** also reached similar performance levels. However, there was a difference in feature usage:
+
+- **Random Forest and Decision Tree** achieved top accuracy using **8 out of 13 features**.  
+- **LightGBM** used **11 features** to reach comparable accuracy.  
+
+This analysis demonstrates that the **Random Forest model is both accurate and efficient**, requiring fewer features for prediction while maintaining high performance. 
 ---
 
 ## Key Highlights
