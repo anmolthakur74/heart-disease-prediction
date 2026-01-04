@@ -34,11 +34,11 @@ This analysis demonstrates that the **Random Forest model is both accurate and e
 
 ---
 
-## How to Run
-
-### Backend
+## How to Run Locally
 
 ```bash
+git clone https://github.com/anmolthakur74/heart-disease-prediction.git
+cd heart-disease-prediction
 
 cd backend
 pip install fastapi uvicorn pandas joblib scikit-learn
