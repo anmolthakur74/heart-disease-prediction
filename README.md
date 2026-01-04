@@ -10,6 +10,7 @@ Among all models, the **Random Forest model consistently achieved the highest ac
 - **LightGBM** used **11 features** to reach comparable accuracy.  
 
 This analysis demonstrates that the **Random Forest model is both accurate and efficient**, requiring fewer features for prediction while maintaining high performance. 
+
 ---
 
 ## Key Highlights
