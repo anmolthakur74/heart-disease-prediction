@@ -49,5 +49,5 @@ npm install
 npm start
 ```
 
-**Author**
+## Author
 Anmol Thakur
