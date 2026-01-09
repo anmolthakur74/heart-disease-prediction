@@ -3,14 +3,14 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import joblib
 import pandas as pd
+import os
 
-# ---------------------------
-# Load artifacts
-# ---------------------------
-rf_model = joblib.load("rf_heart_model.pkl")
-scaler = joblib.load("scaler_selected.pkl")
-selected_features = joblib.load("features.pkl")
-encoders = joblib.load("encoders.pkl")
+BASE_DIR = os.path.dirname(__file__)  # backend folder
+
+rf_model = joblib.load(os.path.join(BASE_DIR, "rf_heart_model.pkl"))
+scaler = joblib.load(os.path.join(BASE_DIR, "scaler_selected.pkl"))
+selected_features = joblib.load(os.path.join(BASE_DIR, "features.pkl"))
+encoders = joblib.load(os.path.join(BASE_DIR, "encoders.pkl"))
 
 numeric_features = ["age", "trestbps", "oldpeak"]
 
@@ -67,3 +67,4 @@ def predict(patient: Patient):
         "prediction": int(prediction),
         "probability": float(probability)
     }
+
