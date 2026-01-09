@@ -44,7 +44,7 @@ A clinical decision-support dashboard that predicts heart disease risk using a *
 
 ## Machine Learning Experiments
 
-- Explored **11 machine learning algorithms**, including:
+- Explored **11 algorithms**, covering both classical machine learning and deep learning algorithms:
   - Random Forest, Decision Tree, Logistic Regression, SVM, KNN, LightGBM, CNN, MLP, LSTM, XGBoost, Naive Bayes.
 - Applied **Genetic Algorithm (GA) feature selection** and compared results with models without GA.
 - Evaluated models using multiple train-test splits (70:30, 75:25, 80:20) and **5-fold cross-validation** for reliable performance.
