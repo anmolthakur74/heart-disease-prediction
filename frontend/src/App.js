@@ -80,10 +80,11 @@ function App() {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/predict",
-        formData,
-        { headers: { "Content-Type": "application/json" } }
-      );
+  "https://heart-disease-prediction-00vd.onrender.com/predict",
+  formData,
+  { headers: { "Content-Type": "application/json" } }
+);
+
       setResult(response.data);
     } catch (err) {
       setError("Prediction service is unavailable. Please try again later.");
