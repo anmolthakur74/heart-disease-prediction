@@ -12,18 +12,11 @@ A clinical decision-support dashboard that predicts heart disease risk using a *
 
 ## Features
 
-- Input patient clinical features including:
-  - Age (years)
-  - Sex
-  - Resting Blood Pressure (mm Hg)
-  - Fasting Blood Sugar
-  - Exercise-Induced Angina
-  - ST Depression (Exercise vs Rest, mm)
-  - Number of Major Vessels (0–3)
-  - Thalassemia Status
-- Predicts **High Risk** or **Low Risk** heart disease.
-- Displays model confidence (how many decision trees voted for the prediction).
-- User-friendly interface with numeric step limits and dropdowns for categorical features.
+- Accepts essential clinical inputs for heart disease assessment.  
+- Provides a risk classification: **High Risk** or **Low Risk**.  
+- Displays model confidence, indicating the reliability of the prediction.  
+- Intuitive, responsive interface for seamless user interaction.  
+- Supports numeric inputs with controlled ranges and categorical selections for accurate data entry.
 
 ---
 
@@ -52,12 +45,12 @@ A clinical decision-support dashboard that predicts heart disease risk using a *
 ## Machine Learning Experiments
 
 - Explored **11 machine learning algorithms**, including:
-  - Random Forest, Decision Tree, Logistic Regression, SVM, KNN, LightGBM, CNN, MLP, etc.
-- Applied **Genetic Algorithm (GA) feature selection** and compared with models without GA.
-- Evaluated using multiple train-test splits (70:30, 75:25, 80:20) and **5-fold cross-validation** for reliable performance.
-- **Random Forest** achieved the highest accuracy using **8 key features**, and was selected for deployment.
-- Decision Tree and LightGBM reached similar performance but required more features.
-
+  - Random Forest, Decision Tree, Logistic Regression, SVM, KNN, LightGBM, CNN, MLP, LSTM, XGBoost, Naive Bayes.
+- Applied **Genetic Algorithm (GA) feature selection** and compared results with models without GA.
+- Evaluated models using multiple train-test splits (70:30, 75:25, 80:20) and **5-fold cross-validation** for reliable performance.
+- **Random Forest** achieved the **highest accuracy** using **8 key features**, and was selected for deployment due to ensemble stability and robustness.
+- **Decision Tree** reached **similar accuracy using the same 8 features**, but Random Forest was preferred for better generalization.
+- **LightGBM** reached **similar accuracy**, but required **11 features**, making it less efficient for deployment.
 
 ## Installation
 
