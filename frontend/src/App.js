@@ -25,7 +25,7 @@ function App() {
     trestbps: "Resting Blood Pressure (mm Hg)",
     fbs: "Fasting Blood Sugar",
     exang: "Exercise-Induced Angina",
-    oldpeak: "ST Depression (Exercise vs Rest)",
+    oldpeak: "ST Depression (mm)",
     ca: "Number of Major Vessels",
     thal: "Thalassemia Status",
   };
@@ -59,12 +59,12 @@ function App() {
 
   // Categorical variable legend for users (shown above the form)
   const categoricalLegend = {
-    sex: "0 = Female, 1 = Male",
-    fbs: "Yes (>120 mg/dL) or No (≤120 mg/dL)",
-    exang: "1 = Yes, 0 = No",
-    ca: "0–3 major vessels colored by fluoroscopy",
-    thal: "1 = Normal, 2 = Fixed Defect, 3 = Reversible Defect",
-  };
+  sex: "0 = Female, 1 = Male",
+  fbs: "0 = No (≤120 mg/dL), 1 = Yes (>120 mg/dL)",
+  exang: "0 = No, 1 = Yes",
+  ca: "0–3 = Number of major vessels colored by fluoroscopy",
+  thal: "1 = Normal, 2 = Fixed Defect, 3 = Reversible Defect",
+};
 
   // Handle input change
   const handleChange = (e) => {
@@ -152,12 +152,16 @@ function App() {
                   </select>
                 ) : (
                   <input
-                    type="number"
-                    name={key}
-                    value={value}
-                    onChange={handleChange}
-                    className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  />
+  type="number"
+  name={key}
+  value={value}
+  onChange={handleChange}
+  min={key === "age" ? 20 : key === "trestbps" ? 80 : key === "oldpeak" ? 0.0 : undefined}
+  max={key === "age" ? 100 : key === "trestbps" ? 250 : key === "oldpeak" ? 6.0 : undefined}
+  step={key === "oldpeak" ? 0.1 : 1}
+  className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+/>
+
                 )}
               </div>
             ))}
