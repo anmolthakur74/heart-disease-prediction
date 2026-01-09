@@ -1,53 +1,93 @@
-# Heart Disease Prediction Dashboard
+# Heart Disease Risk Assessment
 
-This project is a full-stack **heart disease prediction system** that combines machine learning experiments with an interactive web dashboard.  
-
-I explored **11 different machine learning algorithms**, including both **classical machine learning (ML)** and **deep learning (DL) models**, to identify the most accurate model for predicting heart disease. Each algorithm was tested **with and without Genetic Algorithm (GA) feature selection**, across multiple train-test splits (70:30, 75:25, 80:20) and using **k-fold cross-validation** to ensure reliable evaluation.  
-
-Among all models, the **Random Forest model consistently achieved the highest accuracy** and was selected for deployment. Interestingly, **Decision Tree and LightGBM** also reached similar performance levels. However, there was a difference in feature usage:
-
-- **Random Forest and Decision Tree** achieved top accuracy using **8 out of 13 features**.  
-- **LightGBM** used **11 features** to reach comparable accuracy.  
-
-This analysis demonstrates that the **Random Forest model is both accurate and efficient**, requiring fewer features for prediction while maintaining high performance. 
+A clinical decision-support dashboard that predicts heart disease risk using a **Random Forest classifier** trained on cardiovascular health indicators. The tool provides both a classification (High/Low risk) and a model confidence score.
 
 ---
 
-## Key Highlights
+## Live Demo
 
-- **Machine Learning Experiments**:  
-  - 11 algorithms tested, including Random Forest, Logistic Regression, SVM, KNN, Decision Tree, CNN, MLP etc.  
-  - Feature selection applied using **Genetic Algorithm (GA)** and compared against models without GA.  
-  - Evaluated using multiple train-test splits for reliable performance.
-
-- **Deployed Model**:  
-  - **Random Forest** was selected as the production-ready model due to its superior accuracy.  
-  - Model and selected features are saved as `.pkl` files and served via **FastAPI**.
-
-- **Frontend Dashboard**:  
-  - Interactive **React app** for inputting patient data and viewing predictions.  
-  - Connects to the FastAPI backend for real-time inference.
-
-- **Backend**:  
-  - Built with **FastAPI** and serves the deployed Random Forest model.  
-  - Handles prediction requests, ensuring input data uses the same features as the trained model.
+[https://heart-risk-assessment.netlify.app/](https://heart-risk-assessment.netlify.app/)
 
 ---
 
-## How to Run Locally
+## Features
+
+- Input patient clinical features including:
+  - Age (years)
+  - Sex
+  - Resting Blood Pressure (mm Hg)
+  - Fasting Blood Sugar
+  - Exercise-Induced Angina
+  - ST Depression (Exercise vs Rest, mm)
+  - Number of Major Vessels (0–3)
+  - Thalassemia Status
+- Predicts **High Risk** or **Low Risk** heart disease.
+- Displays model confidence (how many decision trees voted for the prediction).
+- User-friendly interface with numeric step limits and dropdowns for categorical features.
+
+---
+
+## Categorical Feature Reference
+
+| Feature                     | Description |
+|-----------------------------|-------------|
+| Sex                         | 0 = Female, 1 = Male |
+| Fasting Blood Sugar (FBS)   | Yes (>120 mg/dL) or No (≤120 mg/dL) |
+| Exercise-Induced Angina     | 1 = Yes, 0 = No |
+| Number of Major Vessels (CA)| 0–3 major vessels colored by fluoroscopy |
+| Thalassemia Status (Thal)   | 1 = Normal, 2 = Fixed Defect, 3 = Reversible Defect |
+
+---
+
+## Technology Stack
+
+- **Frontend:** React, Tailwind CSS
+- **Backend:** FastAPI
+- **Machine Learning:** Scikit-learn (Random Forest)
+- **Deployment:** Netlify (frontend), Render (backend)
+- **Data Processing:** Pandas, NumPy
+
+---
+
+## Machine Learning Experiments
+
+- Explored **11 machine learning algorithms**, including:
+  - Random Forest, Decision Tree, Logistic Regression, SVM, KNN, LightGBM, CNN, MLP, etc.
+- Applied **Genetic Algorithm (GA) feature selection** and compared with models without GA.
+- Evaluated using multiple train-test splits (70:30, 75:25, 80:20) and **5-fold cross-validation** for reliable performance.
+- **Random Forest** achieved the highest accuracy using **8 key features**, and was selected for deployment.
+- Decision Tree and LightGBM reached similar performance but required more features.
+
+
+## Installation
 
 ```bash
-git clone https://github.com/anmolthakur74/heart-disease-prediction.git
-cd heart-disease-prediction
+git clone https://github.com/anmolthakur74/heart-risk-assessment.git
+cd heart-risk-assessment
+```
 
+**Backend Setup**
+
+```bash
 cd backend
-pip install fastapi uvicorn pandas joblib scikit-learn
-python -m uvicorn backend:app --reload
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn backend:app --reload
+```
 
+**Frontend Setup**
+
+```bash
 cd frontend
 npm install
 npm start
 ```
 
+## Disclaimer
+
+This tool is intended for academic and research purposes only. It is not a substitute for professional medical diagnosis or treatment. Always consult a healthcare professional for clinical decisions.
+
 ## Author
-Anmol Thakur
+
+**Anmol Thakur**
